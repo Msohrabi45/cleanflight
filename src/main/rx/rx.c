@@ -268,6 +268,12 @@ void updateRx(uint32_t currentTime)
 #ifdef NRF24
     if (feature(FEATURE_RX_NRF24)) {
         rxDataReceived = rxNRF24ReceivePacket();
+        if (rxDataReceived) {
+
+            if (feature(FEATURE_FAILSAFE)) {
+                failsafeOnValidDataReceived();
+            }
+        }
     }
 #endif
 
