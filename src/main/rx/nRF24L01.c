@@ -53,7 +53,7 @@ typedef struct nrf24Payload {
     uint8_t dial1;
     uint8_t dial2;
     uint8_t switches; // bitflag
-} nrf24Payload;
+} __attribute__ ((__packed__)) nrf24Payload;
 
 nrf24Payload payload;
 
